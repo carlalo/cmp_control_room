@@ -24,7 +24,7 @@
     "control_room/providers/logs.lua": "4f72cb9dd8cbdfbdaba9712d6eab26227b4d2f8abaf3fce25a2c7e6203590135",
     "control_room/providers/radar.lua": "5736a0e832d9768c9de1ccfe424a3b46ed0d725c755fbc93fc0ec01f918bed7e",
     "control_room/config/rules.lua": "f0476cc7258a68ff9bb96e9ff7bd57d36b186525bd2e5e184934735f5e74d54a",
-    "control_room/config/layout.lua": "3d4cc8c107fe2a3c3b1ad912dd882114d18ce18d850bbf58bb831fa97347aabc",
+    "control_room/config/layout.lua": "ead3490db2ad7e34abc8c244148d2487b2a02b91c8a5cb0814ba7b866910d6ae",
     "control_room/config/theme.lua": "4e75b9a1a6e9d6a616068d09bcd58a3410087a3b472edcbbc6eba598894d8ba3",
     "control_room/startup.lua": "da369aed50174a841e0fc55be9815b0fd2a301be58a1cbb7c8cffbe019c098ec",
     "control_room/rules/blacklist_presence.lua": "ea681aac33486da01b9e9020ffb2ac984db2e91a05c04e2fdc46f2a6c6df9d34",

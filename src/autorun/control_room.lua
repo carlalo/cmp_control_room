@@ -1,3 +1,30 @@
--- Start the Control Room from its project directory during CC Updater startup.
-shell.setDir("/control_room")
+-- Start Control Room from its package directory during CC Updater startup.
+local runningPath = shell.getRunningProgram()
+local autorunDir = fs.getDir(runningPath)
+local packageDir = fs.getDir(autorunDir)
+
+local function absolute(path)
+    return "/" .. tostring(path):gsub("^/+", "")
+end
+
+local candidates = {
+    fs.combine(packageDir, "control_room"),
+    fs.combine(packageDir, "src/control_room")
+}
+
+local appDir
+for _, candidate in ipairs(candidates) do
+    candidate = absolute(candidate)
+    if fs.isDir(candidate) and fs.exists(fs.combine(candidate, "startup.lua")) then
+        appDir = candidate
+        break
+    end
+end
+
+if not appDir then
+    error("Control Room startup.lua not found. Checked: "
+        .. table.concat(candidates, ", "))
+end
+
+shell.setDir(appDir)
 shell.run("startup.lua")

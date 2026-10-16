@@ -1,0 +1,1 @@
+local a=require("core.log")local b={}b.__index=b;function b.new(c)c=c or{}return setmetatable({limit=c.limit or 500},b)end;function b:read()return{online=true,logs=a.getEntries(self.limit)}end;return b

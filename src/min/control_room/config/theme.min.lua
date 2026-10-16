@@ -1,0 +1,1 @@
+return{colors={background={2,6,13},panel={4,14,26},track={10,29,44},blue={0,132,205},blueText={0,195,255},red={175,0,35},redLight={255,12,48},white={210,235,250},gray={112,164,188},green={0,245,180},edge={0,78,116},title={255,28,58}},font="Arial",sizes={title=25,heading=13,body=12,metric=27},spacing={small=8,medium=16,large=24}}

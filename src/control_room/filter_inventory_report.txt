@@ -1,0 +1,85 @@
+{
+  title = "Read-only filter inventory report",
+  inventories = {
+    {
+      slots = {
+        {
+          stack = {
+            nbt = "49acbe94a9d9b0e085b61b553f6ada59",
+            count = 1,
+            name = "create_radar:radar_filter_item",
+          },
+          detail = {
+            tags = {},
+            name = "create_radar:radar_filter_item",
+            itemGroups = {},
+            maxCount = 64,
+            count = 1,
+            nbt = "49acbe94a9d9b0e085b61b553f6ada59",
+            displayName = "Detection Filter",
+          },
+          slot = 1,
+        },
+        {
+          stack = {
+            nbt = "480bf79bacfc19ce8cbb29b0bbdfe4b0",
+            count = 1,
+            name = "create_radar:ident_filter_item",
+          },
+          detail = {
+            tags = {},
+            name = "create_radar:ident_filter_item",
+            itemGroups = {},
+            maxCount = 64,
+            count = 1,
+            nbt = "480bf79bacfc19ce8cbb29b0bbdfe4b0",
+            displayName = "Identification Filter",
+          },
+          slot = 2,
+        },
+        {
+          stack = {
+            nbt = "7ecf41fa703bb481381f2fe36909b6ee",
+            count = 1,
+            name = "create_radar:target_filter_item",
+          },
+          detail = {
+            tags = {},
+            name = "create_radar:target_filter_item",
+            itemGroups = {},
+            maxCount = 64,
+            count = 1,
+            nbt = "7ecf41fa703bb481381f2fe36909b6ee",
+            displayName = "Targeting Filter",
+          },
+          slot = 3,
+        },
+      },
+      name = "create_radar:network_filterer_block_entity_0",
+      size = 3,
+    },
+    {
+      slots = {
+        {
+          stack = {
+            nbt = "380115aba885ec13b5d4b2bc8b51a17a",
+            count = 1,
+            name = "create_radar:target_filter_item",
+          },
+          detail = {
+            tags = {},
+            name = "create_radar:target_filter_item",
+            itemGroups = {},
+            maxCount = 64,
+            count = 1,
+            nbt = "380115aba885ec13b5d4b2bc8b51a17a",
+            displayName = "Targeting Filter",
+          },
+          slot = 1,
+        },
+      },
+      name = "minecraft:chest_0",
+      size = 27,
+    },
+  },
+}

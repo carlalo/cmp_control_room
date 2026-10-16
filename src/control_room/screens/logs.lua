@@ -1,0 +1,25 @@
+return {
+    title = "SYSTEM LOG",
+    width = 900,
+    height = 600,
+    widgets = {
+        {
+            type = "table",
+            id = "system_logs",
+            label = "RECENT EVENTS",
+            hint = "NEWEST FIRST  /  MAX 500 ENTRIES",
+            valueKey = "logs",
+            emptyText = "No log messages yet",
+            scrollable = true,
+            autoRowHeight = true,
+            rowHeight = 27,
+            x = 24, y = 94, width = 852, height = 480,
+            columns = {
+                { key = "timestamp", label = "TIME", format = "time", weight = 1.2 },
+                { key = "level", label = "LEVEL", weight = 0.8 },
+                { key = "source", label = "SYSTEM", weight = 1.5 },
+                { key = "content", label = "MESSAGE", weight = 4.5, wrap = true }
+            }
+        }
+    }
+}

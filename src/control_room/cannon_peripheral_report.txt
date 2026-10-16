@@ -1,0 +1,428 @@
+Cannon Peripheral Report
+========================
+
+Peripheral: back
+  Types: modem, peripheral_hub
+  Methods:
+    callRemote
+    close
+    closeAll
+    getMethodsRemote
+    getNameLocal
+    getNamesRemote
+    getTypeRemote
+    hasTypeRemote
+    isOpen
+    isPresentRemote
+    isWireless
+    open
+    transmit
+  Wired network remote peripherals:
+    chat_box_0
+      Types: chat_box
+      Methods: getConfiguration, getName, narrateMessage, sendFormattedMessage, sendFormattedToast, sendMessage, sendToast, setName
+    create:fluid_tank_2
+      Types: create:fluid_tank, fluid_tank, fluid_storage
+      Methods: info, pullFluid, pushFluid, tanks
+    create:fluid_tank_3
+      Types: create:fluid_tank, fluid_tank, fluid_storage
+      Methods: info, pullFluid, pushFluid, tanks
+    create_radar:network_filterer_block_entity_0
+      Types: create_radar:network_filterer_block_entity, inventory
+      Methods: getItemDetail, getItemLimit, list, pullItems, pushItems, size
+    create_radar:radar_bearing_1
+      Types: create_radar:radar_bearing, scroll_behaviour
+      Methods: getDishCount, getKind, getNetworkId, getRange, getRotation, getRotationSpeed, getScrollValue, getSelfId, getSourceId, getSpeed, getStressContribution, getStressImpact, getSubnetworkAnchorId, getTracks, hasSource, isOverstressed, setScrollValue
+    directgpu_2
+      Types: directgpu
+      Methods: addAmbientLight, addDirectionalLight, addMetaball, autoDetectAndCreateDisplay, autoDetectAndCreateDisplayScaled, autoDetectAndCreateDisplayWithResolution, autoDetectAndCreateDisplays, autoDetectMonitor, autoDetectMonitorInfo, autoDetectMonitors, clear, clear3D, clearAll3DModels, clearAllDisplays, clearDictionary, clearEvents, clearFontCache, clearJPEGCache, clearLights, clearMetaballs, clearZBuffer, compressWithDict, createDisplay, createDisplayAt, createDisplayWithResolution, createMetaballSystem, decodeAndScaleGIF, decodeAndScaleImage, decodeAndScaleJPEG, decodeAndScalePNG, decodeGIF, decodeImage, decodeJPEG, decodePNG, decompressFromDict, detectImageFormat, draw3DModel, draw3DModelTextured, drawBezierCurve, drawCircle, drawCube, drawEllipse, drawLine, drawPolygon, drawPolylines, drawPyramid, drawRoundedRect, drawSVGPath, drawSphere, drawStar, drawText, drawTextWithBg, drawTextWrapped, enableDeltaMode, fillEllipse, fillRect, get3DModelInfo, getAvailableFonts, getBiomeAt, getCalibrationValues, getCameraInfo, getChunk, getDictionaryStats, getDimension, getDisplayFrameJpeg, getDisplayInfo, getDisplayPosition, getGIFDimensions, getGIFFrameInfo, getImageDimensions, getJPEGDimensions, getJPEGNetworkStats, getMetaballCount, getMetaballInfo, getMoonInfo, getPNGDimensions, getPixel, getRecommendedJPEGSettings, getResourceStats, getRotation, getTextureInfo, getTimeInfo, getWeather, getWorldInfo, hasChunk, hasEvents, listDisplays, load3DModel, load3DModelFromBytes, loadGIFFrame, loadGIFFullscreen, loadGIFRegion, loadGIFRegionBytes, loadImageFullscreen, loadImageRegionBytes, loadJPEGFullscreen, loadJPEGRegion, loadJPEGRegionBytes, loadJPGTexture, loadPNGFullscreen, loadPNGRegion, loadPNGRegionBytes, loadPNGTexture, loadTexture, loadTextureFromImage, loadTextureImage, loadTextureImageBytes, lookAt, measureText, mirrorDisplay, moveDisplay, pollEvent, preloadJPEGSequence, removeDisplay, removeMetaballSystem, renderMetaballs, setBackfaceCulling, setBackgroundOpacity, setCalibrationMode, setCameraPosition, setCameraRotation, setCameraTarget, setDisplayPosition, setMetaballColor, setMetaballPhysics, setMetaballVelocity, setOpacity, setPhongShading, setPixel, setRotation, setupCamera, stopDisplayMovement, stopGIF, termRedirect, termRender, unload3DModel, unloadTexture, updateDisplay, updateMetaballs
+    minecraft:chest_0
+      Types: minecraft:chest, inventory
+      Methods: getItemDetail, getItemLimit, list, pullItems, pushItems, size
+    monitor_3
+      Types: monitor
+      Methods: blit, clear, clearLine, getBackgroundColor, getBackgroundColour, getCursorBlink, getCursorPos, getPaletteColor, getPaletteColour, getSize, getTextColor, getTextColour, getTextScale, isColor, isColour, scroll, setBackgroundColor, setBackgroundColour, setCursorBlink, setCursorPos, setPaletteColor, setPaletteColour, setTextColor, setTextColour, setTextScale, write
+    monitor_4
+      Types: monitor
+      Methods: blit, clear, clearLine, getBackgroundColor, getBackgroundColour, getCursorBlink, getCursorPos, getPaletteColor, getPaletteColour, getSize, getTextColor, getTextColour, getTextScale, isColor, isColour, scroll, setBackgroundColor, setBackgroundColour, setCursorBlink, setCursorPos, setPaletteColor, setPaletteColour, setTextColor, setTextColour, setTextScale, write
+    monitor_5
+      Types: monitor
+      Methods: blit, clear, clearLine, getBackgroundColor, getBackgroundColour, getCursorBlink, getCursorPos, getPaletteColor, getPaletteColour, getSize, getTextColor, getTextColour, getTextScale, isColor, isColour, scroll, setBackgroundColor, setBackgroundColour, setCursorBlink, setCursorPos, setPaletteColor, setPaletteColour, setTextColor, setTextColour, setTextScale, write
+    monitor_6
+      Types: monitor
+      Methods: blit, clear, clearLine, getBackgroundColor, getBackgroundColour, getCursorBlink, getCursorPos, getPaletteColor, getPaletteColour, getSize, getTextColor, getTextColour, getTextScale, isColor, isColour, scroll, setBackgroundColor, setBackgroundColour, setCursorBlink, setCursorPos, setPaletteColor, setPaletteColour, setTextColor, setTextColour, setTextScale, write
+    player_detector_0
+      Types: player_detector
+      Methods: getConfiguration, getName, getOnlinePlayers, getOwner, getPlayer, getPlayerStat, getPlayersInCoords, getPlayersInCubic, getPlayersInRange, isPlayerInCoords, isPlayerInCubic, isPlayerInRange, isPlayersInCoords, isPlayersInCubic, isPlayersInRange, setName
+    redstone_relay_0
+      Types: redstone_relay
+      Methods: getAnalogInput, getAnalogOutput, getAnalogueInput, getAnalogueOutput, getBundledInput, getBundledOutput, getInput, getOutput, setAnalogOutput, setAnalogueOutput, setBundledOutput, setOutput, testBundledInput
+
+Peripheral: chat_box_0
+  Types: chat_box
+  Methods:
+    getConfiguration
+    getName
+    narrateMessage
+    sendFormattedMessage
+    sendFormattedToast
+    sendMessage
+    sendToast
+    setName
+
+Peripheral: create:fluid_tank_2
+  Types: create:fluid_tank, fluid_tank, fluid_storage
+  Methods:
+    info
+    pullFluid
+    pushFluid
+    tanks
+
+Peripheral: create:fluid_tank_3
+  Types: create:fluid_tank, fluid_tank, fluid_storage
+  Methods:
+    info
+    pullFluid
+    pushFluid
+    tanks
+
+Peripheral: create_radar:network_filterer_block_entity_0
+  Types: create_radar:network_filterer_block_entity, inventory
+  Methods:
+    getItemDetail
+    getItemLimit
+    list
+    pullItems
+    pushItems
+    size
+
+Peripheral: create_radar:radar_bearing_1
+  Types: create_radar:radar_bearing, scroll_behaviour
+  Methods:
+    getDishCount
+    getKind
+    getNetworkId
+    getRange
+    getRotation
+    getRotationSpeed
+    getScrollValue
+    getSelfId
+    getSourceId
+    getSpeed
+    getStressContribution
+    getStressImpact
+    getSubnetworkAnchorId
+    getTracks
+    hasSource
+    isOverstressed
+    setScrollValue
+
+Peripheral: directgpu_2
+  Types: directgpu
+  Methods:
+    addAmbientLight
+    addDirectionalLight
+    addMetaball
+    autoDetectAndCreateDisplay
+    autoDetectAndCreateDisplayScaled
+    autoDetectAndCreateDisplayWithResolution
+    autoDetectAndCreateDisplays
+    autoDetectMonitor
+    autoDetectMonitorInfo
+    autoDetectMonitors
+    clear
+    clear3D
+    clearAll3DModels
+    clearAllDisplays
+    clearDictionary
+    clearEvents
+    clearFontCache
+    clearJPEGCache
+    clearLights
+    clearMetaballs
+    clearZBuffer
+    compressWithDict
+    createDisplay
+    createDisplayAt
+    createDisplayWithResolution
+    createMetaballSystem
+    decodeAndScaleGIF
+    decodeAndScaleImage
+    decodeAndScaleJPEG
+    decodeAndScalePNG
+    decodeGIF
+    decodeImage
+    decodeJPEG
+    decodePNG
+    decompressFromDict
+    detectImageFormat
+    draw3DModel
+    draw3DModelTextured
+    drawBezierCurve
+    drawCircle
+    drawCube
+    drawEllipse
+    drawLine
+    drawPolygon
+    drawPolylines
+    drawPyramid
+    drawRoundedRect
+    drawSVGPath
+    drawSphere
+    drawStar
+    drawText
+    drawTextWithBg
+    drawTextWrapped
+    enableDeltaMode
+    fillEllipse
+    fillRect
+    get3DModelInfo
+    getAvailableFonts
+    getBiomeAt
+    getCalibrationValues
+    getCameraInfo
+    getChunk
+    getDictionaryStats
+    getDimension
+    getDisplayFrameJpeg
+    getDisplayInfo
+    getDisplayPosition
+    getGIFDimensions
+    getGIFFrameInfo
+    getImageDimensions
+    getJPEGDimensions
+    getJPEGNetworkStats
+    getMetaballCount
+    getMetaballInfo
+    getMoonInfo
+    getPNGDimensions
+    getPixel
+    getRecommendedJPEGSettings
+    getResourceStats
+    getRotation
+    getTextureInfo
+    getTimeInfo
+    getWeather
+    getWorldInfo
+    hasChunk
+    hasEvents
+    listDisplays
+    load3DModel
+    load3DModelFromBytes
+    loadGIFFrame
+    loadGIFFullscreen
+    loadGIFRegion
+    loadGIFRegionBytes
+    loadImageFullscreen
+    loadImageRegionBytes
+    loadJPEGFullscreen
+    loadJPEGRegion
+    loadJPEGRegionBytes
+    loadJPGTexture
+    loadPNGFullscreen
+    loadPNGRegion
+    loadPNGRegionBytes
+    loadPNGTexture
+    loadTexture
+    loadTextureFromImage
+    loadTextureImage
+    loadTextureImageBytes
+    lookAt
+    measureText
+    mirrorDisplay
+    moveDisplay
+    pollEvent
+    preloadJPEGSequence
+    removeDisplay
+    removeMetaballSystem
+    renderMetaballs
+    setBackfaceCulling
+    setBackgroundOpacity
+    setCalibrationMode
+    setCameraPosition
+    setCameraRotation
+    setCameraTarget
+    setDisplayPosition
+    setMetaballColor
+    setMetaballPhysics
+    setMetaballVelocity
+    setOpacity
+    setPhongShading
+    setPixel
+    setRotation
+    setupCamera
+    stopDisplayMovement
+    stopGIF
+    termRedirect
+    termRender
+    unload3DModel
+    unloadTexture
+    updateDisplay
+    updateMetaballs
+
+Peripheral: minecraft:chest_0
+  Types: minecraft:chest, inventory
+  Methods:
+    getItemDetail
+    getItemLimit
+    list
+    pullItems
+    pushItems
+    size
+
+Peripheral: monitor_3
+  Types: monitor
+  Methods:
+    blit
+    clear
+    clearLine
+    getBackgroundColor
+    getBackgroundColour
+    getCursorBlink
+    getCursorPos
+    getPaletteColor
+    getPaletteColour
+    getSize
+    getTextColor
+    getTextColour
+    getTextScale
+    isColor
+    isColour
+    scroll
+    setBackgroundColor
+    setBackgroundColour
+    setCursorBlink
+    setCursorPos
+    setPaletteColor
+    setPaletteColour
+    setTextColor
+    setTextColour
+    setTextScale
+    write
+
+Peripheral: monitor_4
+  Types: monitor
+  Methods:
+    blit
+    clear
+    clearLine
+    getBackgroundColor
+    getBackgroundColour
+    getCursorBlink
+    getCursorPos
+    getPaletteColor
+    getPaletteColour
+    getSize
+    getTextColor
+    getTextColour
+    getTextScale
+    isColor
+    isColour
+    scroll
+    setBackgroundColor
+    setBackgroundColour
+    setCursorBlink
+    setCursorPos
+    setPaletteColor
+    setPaletteColour
+    setTextColor
+    setTextColour
+    setTextScale
+    write
+
+Peripheral: monitor_5
+  Types: monitor
+  Methods:
+    blit
+    clear
+    clearLine
+    getBackgroundColor
+    getBackgroundColour
+    getCursorBlink
+    getCursorPos
+    getPaletteColor
+    getPaletteColour
+    getSize
+    getTextColor
+    getTextColour
+    getTextScale
+    isColor
+    isColour
+    scroll
+    setBackgroundColor
+    setBackgroundColour
+    setCursorBlink
+    setCursorPos
+    setPaletteColor
+    setPaletteColour
+    setTextColor
+    setTextColour
+    setTextScale
+    write
+
+Peripheral: monitor_6
+  Types: monitor
+  Methods:
+    blit
+    clear
+    clearLine
+    getBackgroundColor
+    getBackgroundColour
+    getCursorBlink
+    getCursorPos
+    getPaletteColor
+    getPaletteColour
+    getSize
+    getTextColor
+    getTextColour
+    getTextScale
+    isColor
+    isColour
+    scroll
+    setBackgroundColor
+    setBackgroundColour
+    setCursorBlink
+    setCursorPos
+    setPaletteColor
+    setPaletteColour
+    setTextColor
+    setTextColour
+    setTextScale
+    write
+
+Peripheral: player_detector_0
+  Types: player_detector
+  Methods:
+    getConfiguration
+    getName
+    getOnlinePlayers
+    getOwner
+    getPlayer
+    getPlayerStat
+    getPlayersInCoords
+    getPlayersInCubic
+    getPlayersInRange
+    isPlayerInCoords
+    isPlayerInCubic
+    isPlayerInRange
+    isPlayersInCoords
+    isPlayersInCubic
+    isPlayersInRange
+    setName
+
+Peripheral: redstone_relay_0
+  Types: redstone_relay
+  Methods:
+    getAnalogInput
+    getAnalogOutput
+    getAnalogueInput
+    getAnalogueOutput
+    getBundledInput
+    getBundledOutput
+    getInput
+    getOutput
+    setAnalogOutput
+    setAnalogueOutput
+    setBundledOutput
+    setOutput
+    testBundledInput

@@ -23,7 +23,7 @@
     "control_room/providers/fluid_tank.lua": "41479baf451fb2eb248b646de218acddce64534a1621bdb1313744dd5143737b",
     "control_room/providers/logs.lua": "4f72cb9dd8cbdfbdaba9712d6eab26227b4d2f8abaf3fce25a2c7e6203590135",
     "control_room/providers/radar.lua": "5736a0e832d9768c9de1ccfe424a3b46ed0d725c755fbc93fc0ec01f918bed7e",
-    "control_room/config/rules.lua": "4ae45421404be14644cfbce26559b42e04d517337ecfbb800b88c21529bdee57",
+    "control_room/config/rules.lua": "c37464c7a5de5e9afb1f810c32e39e6c13804af38636ff88c37f5b9624694682",
     "control_room/config/layout.lua": "782c31e0452053a5e7f7f0c80cd94db86f4033094117b7a1d6e5e3f131da196b",
     "control_room/config/theme.lua": "4e75b9a1a6e9d6a616068d09bcd58a3410087a3b472edcbbc6eba598894d8ba3",
     "control_room/startup.lua": "da369aed50174a841e0fc55be9815b0fd2a301be58a1cbb7c8cffbe019c098ec",

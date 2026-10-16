@@ -1,5 +1,6 @@
 -- Start Control Room from its package directory during CC Updater startup.
 local runningPath = shell.getRunningProgram()
+print("Running Control Room from: " .. runningPath)
 local autorunDir = fs.getDir(runningPath)
 local packageDir = fs.getDir(autorunDir)
 

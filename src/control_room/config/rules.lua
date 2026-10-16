@@ -2,9 +2,9 @@ return {
     blacklist_presence = {
         enabled = true,
         fireAfterSeconds = 20,
-        fireDistanceBlocks = 10,
-        distanceWarningMarginBlocks = 20,
-        countdownSeconds = 3,
+        fireDistanceBlocks = 100,
+        distanceWarningMarginBlocks = 30,
+        countdownSeconds = 5,
         countdownIntervalSeconds = 2,
         chatMessageIntervalSeconds = 2,
         chatBoxPeripheral = "chat_box_6",

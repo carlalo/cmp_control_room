@@ -7,9 +7,9 @@ return {
         countdownSeconds = 3,
         countdownIntervalSeconds = 2,
         chatMessageIntervalSeconds = 2,
-        chatBoxPeripheral = "chat_box_0",
+        chatBoxPeripheral = "chat_box_6",
         chatPrefix = "CONTROL ROOM",
-        fireOutputPeripheral = "redstone_relay_0",
+        fireOutputPeripheral = "redstone_relay_23",
         fireOutputSide = "top",
         targetFilter = {
             controllerPeripheral = "create_radar:network_filterer_block_entity_0",

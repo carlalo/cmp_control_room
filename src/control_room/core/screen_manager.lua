@@ -435,6 +435,7 @@ end
 function M.loadConfig(config)
     assert(type(config) == "table", "Layout-Konfiguration fehlt")
     displays, instances = {}, {}
+    local providerDefinitions = config.providers or {}
 
     for displayNumber, definition in ipairs(config.displays or {}) do
         assert(definition.mode == "fullscreen" or definition.mode == "grid",
@@ -465,6 +466,12 @@ function M.loadConfig(config)
                 "Doppelter Instanzname: " .. instanceDefinition.name)
             assert(type(instanceDefinition.screen) == "string", "Screen-Name fehlt")
 
+            local providerConfig = type(instanceDefinition.provider) == "string"
+                and providerDefinitions[instanceDefinition.provider]
+                or instanceDefinition.provider
+            assert(type(providerConfig) == "table",
+                "Provider config/reference missing for " .. instanceDefinition.name)
+
             local screen = require("screens." .. instanceDefinition.screen)
             if instanceDefinition.title then
                 local titledScreen = {}
@@ -477,7 +484,7 @@ function M.loadConfig(config)
             local instance = {
                 name = instanceDefinition.name,
                 screen = screen,
-                providerType = instanceDefinition.provider.type,
+                providerType = providerConfig.type,
                 data = {},
                 histories = {},
                 lastError = nil

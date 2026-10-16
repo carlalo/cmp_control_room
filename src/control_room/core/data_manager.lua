@@ -4,7 +4,7 @@ local ProviderFactory = require("core.provider_factory")
 local M = {}
 local sources = {}
 
-local function providerKey(config)
+local function inlineProviderKey(config)
     local origin = config.origin or {}
     return table.concat({
         tostring(config.type or ""),
@@ -17,24 +17,36 @@ end
 
 function M.loadConfig(config)
     sources = {}
-    local providers = {}
+    local providerDefinitions = config.providers or {}
+    local providerInstances = {}
     for _, display in ipairs(config.displays or {}) do
         for _, instance in ipairs(display.instances or {}) do
             assert(type(instance.name) == "string" and instance.name ~= "",
                 "Snapshot source requires an instance name")
             assert(not sources[instance.name],
                 "Duplicate snapshot source: " .. instance.name)
-            assert(type(instance.provider) == "table",
-                "Provider config missing for " .. instance.name)
-            local key = providerKey(instance.provider)
-            local provider = providers[key]
+            local providerConfig
+            local key
+            if type(instance.provider) == "string" then
+                key = instance.provider
+                providerConfig = providerDefinitions[key]
+                assert(type(providerConfig) == "table",
+                    "Unknown provider '" .. key .. "' for " .. instance.name)
+            elseif type(instance.provider) == "table" then
+                providerConfig = instance.provider
+                key = inlineProviderKey(providerConfig)
+            else
+                error("Provider reference missing for " .. instance.name)
+            end
+
+            local provider = providerInstances[key]
             if not provider then
-                provider = ProviderFactory.create(instance.provider)
-                providers[key] = provider
+                provider = ProviderFactory.create(providerConfig)
+                providerInstances[key] = provider
             end
             sources[instance.name] = {
-                providerType = instance.provider.type,
-                databaseOptions = instance.provider.playerDatabase or {},
+                providerType = providerConfig.type,
+                databaseOptions = providerConfig.playerDatabase or {},
                 providerKey = key,
                 provider = provider
             }

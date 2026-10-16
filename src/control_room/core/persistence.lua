@@ -7,9 +7,11 @@ local leaveGraceSeconds = 5
 
 function M.loadConfig(config)
     visitorSourceName = nil
+    local providerDefinitions = config.providers or {}
     for _, display in ipairs(config.displays or {}) do
         for _, instance in ipairs(display.instances or {}) do
-            local provider = instance.provider or {}
+            local provider = type(instance.provider) == "string"
+                and providerDefinitions[instance.provider] or instance.provider or {}
             if provider.type == "radar" and instance.screen == "visitors"
                 and not visitorSourceName then
                 visitorSourceName = instance.name

@@ -1,4 +1,24 @@
+local radarPlayerDatabase = {
+    sampleIntervalSeconds = 30,
+    stationaryIntervalSeconds = 300,
+    minMoveBlocks = 4,
+    maxObservations = 2000
+}
+
 return {
+    providers = {
+        radar_1 = {
+            type = "radar",
+            peripheral = "create_radar:radar_bearing_10",
+            origin = { x = -3139, z = 3480 },
+            playerDatabase = radarPlayerDatabase
+        },
+        system_logs = {
+            type = "logs",
+            limit = 500
+        }
+    },
+
     displays = {
         {
             id = 0,
@@ -8,17 +28,7 @@ return {
                     name = "radar_1",
                     screen = "visitors",
                     title = "VISITOR RADAR",
-                    provider = {
-                        type = "radar",
-                        peripheral = "create_radar:radar_bearing_1",
-                        origin = { x = -886, z = -1010 },
-                        playerDatabase = {
-                            sampleIntervalSeconds = 30,
-                            stationaryIntervalSeconds = 300,
-                            minMoveBlocks = 4,
-                            maxObservations = 2000
-                        }
-                    }
+                    provider = "radar_1"
                 }
             }
         },
@@ -30,17 +40,7 @@ return {
                     name = "player_database_1",
                     screen = "player_admin",
                     title = "PLAYER DATABASE",
-                    provider = {
-                        type = "radar",
-                        peripheral = "create_radar:radar_bearing_1",
-                        origin = { x = -886, z = -1010 },
-                        playerDatabase = {
-                            sampleIntervalSeconds = 30,
-                            stationaryIntervalSeconds = 300,
-                            minMoveBlocks = 4,
-                            maxObservations = 2000
-                        }
-                    }
+                    provider = "radar_1"
                 }
             }
         },
@@ -52,10 +52,7 @@ return {
                     name = "system_logs_1",
                     screen = "logs",
                     title = "SYSTEM LOG",
-                    provider = {
-                        type = "logs",
-                        limit = 500
-                    }
+                    provider = "system_logs"
                 }
             }
         }

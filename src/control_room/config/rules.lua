@@ -13,7 +13,7 @@ return {
         fireOutputSide = "top",
         targetFilter = {
             controllerPeripheral = "create_radar:network_filterer_block_entity_0",
-            storagePeripheral = "minecraft:chest_0",
+            storagePeripheral = "minecraft:chest_84",
             -- Inventory slots are 1-based: player filter in slot 1, projectile in slot 2.
             -- Either filter may instead be installed in controllerTargetSlot at startup.
             controllerTargetSlot = 3,

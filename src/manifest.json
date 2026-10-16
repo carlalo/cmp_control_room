@@ -46,7 +46,7 @@
     "control_room/drivers/directgpu.lua": "e8a34e7a05f34f5f57276e28e8da5300ca9cbd33c67b87cc004bb09cf077ee3c",
     "control_room/testRadarTargeting.lua": "e7add3069d9771835d60da833bb257b53864f8c641f2612628b43c2147e60516",
     "control_room/inspectFilters.lua": "8865670cdf0a229433deda00b87c6a658cd886c9f1a358e21474cde9c7ac3d64",
-    "autorun/control_room.lua": "b1f9436d11386b079ecebd2b8b66a79c035055299fe1354a931525e3fad1a98e"
+    "autorun/control_room.lua": "7b4e3ba2d9f945ce545914bef386608bd5221c94c91615083332cf774e838a78"
   },
   "dependencies": []
 }

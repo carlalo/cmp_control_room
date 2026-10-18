@@ -137,7 +137,7 @@ local function check_sender(sender)
         local details = modem.callRemote(sender, "getItemDetail", slot)
         local package = details.package
         if package == nil then
-            transferItem("Main", sender, slot)
+            transferItem("MainItem", sender, slot)
         else
             local address = package.getAddress()
             if address ~= nil then

@@ -1,6 +1,6 @@
 {
   "files": {
-    "logistic/main.lua": "6a5017e6860dbc7cfba84c120340496ea33bda77274f80fb6c72200a1a131cce",
+    "logistic/startup.lua": "6a5017e6860dbc7cfba84c120340496ea33bda77274f80fb6c72200a1a131cce",
     "logistic/index.lua": "0445db9c330258e1a2f0b02245fe0adb89a976f7fda9146fc1621f094bda8fb5",
     "control_room/testNetworkController.lua": "c0517d544cb2fcfa7de2cee2c6713fd702b456784eb60e0f6235000817c354aa",
     "control_room/screens/fluid_tank.lua": "97c497e6f881b90cc0dd043a84eafb933a70ab5ebbded7c7f738cc9dd42fd3ce",

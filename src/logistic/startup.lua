@@ -72,8 +72,7 @@ if #arg > 0 then
     if arg[1] == mapping then
         print("Mapping")
         processCommandLoop()
-    else
-        print("Transferring")
-        logisticsLoop()
     end
 end
+print("Transferring")
+logisticsLoop()

@@ -8,9 +8,16 @@ local function absolute(path)
     return "/" .. tostring(path):gsub("^/+", "")
 end
 
+local file = fs.open("/config.txt", "r")
+local content = file.readAll()
+local config = textutils.unserialise(content)
+file.close()
+
+
 local candidates = {
-    fs.combine(packageDir, "control_room"),
-    fs.combine(packageDir, "src/control_room")
+    fs.combine(packageDir, config["autostart"])
+    -- fs.combine(packageDir, "control_room"),
+    -- fs.combine(packageDir, "src/control_room")
 }
 
 local appDir

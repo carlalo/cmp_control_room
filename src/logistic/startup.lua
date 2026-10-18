@@ -137,14 +137,15 @@ local function check_sender(sender)
         local details = modem.callRemote(sender, "getItemDetail", slot)
         local package = details.package
         if package == nil then
-            goto continue
-        end
-        local address = package.getAddress()
-        if address ~= nil then
-            transferItem(address, sender, slot)
+            transferItem("Main", sender, slot)
         else
-            logger.warn("No address found for item in slot " .. slot .. " of sender " .. sender)
-            print("No address found for item in slot " .. slot .. " of sender " .. sender)
+            local address = package.getAddress()
+            if address ~= nil then
+                transferItem(address, sender, slot)
+            else
+                logger.warn("No address found for item in slot " .. slot .. " of sender " .. sender)
+                print("No address found for item in slot " .. slot .. " of sender " .. sender)
+            end
         end
         ::continue::
     end

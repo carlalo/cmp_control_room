@@ -36,7 +36,7 @@ function Index.getAllSenders(index)
     return index.senders
 end
 
-function Index.addReceiver(index, address, name)
+function Index.addReceiver(index, name, address)
     index.receivers[address] = name
     writeIndex(index)
 end

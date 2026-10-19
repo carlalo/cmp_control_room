@@ -56,7 +56,8 @@ local commands = {
     help = function(command, index)
         print("Available commands:")
         print("map sender <name> - Add a sender to the index")
-        print("map receiver <name> <address> - Add a receiver to the index")
+        print(
+            "map receiver <name> <address> - Add a receiver to the index (backup will consume all packages if no other receiver is found)")
         print("list - List all senders and receivers")
         print("search sender <name> - Search for a sender by name")
         print("search receiver <address> - Search for a receiver by address")

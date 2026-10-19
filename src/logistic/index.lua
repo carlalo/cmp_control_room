@@ -27,6 +27,8 @@ end
 function Index.getReceiver(index, address)
     if index.receivers[address] ~= nil then
         return index.receivers[address]
+    elseif index.receivers["backup"] ~= nil then
+        return index.receivers["backup"]
     else
         print("Receiver " .. address .. " war nicht belegt!")
     end

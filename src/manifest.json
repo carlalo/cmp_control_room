@@ -1,10 +1,10 @@
 {
   "files": {
-    "logistic/startup.lua": "e4c46df41083919fb6880aca72aa84fad50b4ff31c1741ad38c8ec4843289d73",
-    "logistic/commands.lua": "f0d42034ebafe7f1f51676ffdadb9bcbf035d1533862bd73a14fd658364b6fb9",
+    "logistic/startup.lua": "27ee7cee4157c86311b422630fecac38353120473fd7c24ade635498e4080fa9",
+    "logistic/commands.lua": "582dfd372d4b25a379e47b19cce2fec5b476fbeb52eb4c6ad2d96f2808a8bc73",
     "logistic/logs/Log.lua": "a2c2ec045cb47801778965b496e7c222039f0ab3f6a08f3e920236b55978a19d",
     "logistic/logistic.lua": "4959b1a5711bdf0cdae3cb29d3d0fa804652ada1b0a67235ffae2a1db8e316d8",
-    "logistic/index.lua": "1ce85c74ce2fb8ffb2c7a701275d7bd7d0ae4dae19a212bc76759d87a2750df0",
+    "logistic/index.lua": "bd2dc62611bf031c862bf19370f8f7e656187ac711cb80de615ccf6dc466c1e4",
     "control_room/testNetworkController.lua": "c0517d544cb2fcfa7de2cee2c6713fd702b456784eb60e0f6235000817c354aa",
     "control_room/screens/fluid_tank.lua": "97c497e6f881b90cc0dd043a84eafb933a70ab5ebbded7c7f738cc9dd42fd3ce",
     "control_room/screens/logs.lua": "01e5fdd852ae1de43af6b91bb0d45ca394bf3f1134e1ed217301f5ac5ddc1ebf",

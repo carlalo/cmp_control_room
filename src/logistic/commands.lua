@@ -1,6 +1,6 @@
 local index_manager = require("index")
 
-local Function_table = {};
+local Function_table = {}
 
 local function mysplit(inputstr, sep)
     if sep == nil then

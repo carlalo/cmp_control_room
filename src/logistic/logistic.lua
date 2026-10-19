@@ -19,16 +19,16 @@ local function hasEmptySlots(inventoryName)
 end
 
 local function transferItem(address, source, slot, index)
-    local receiver = index_manager.getReceiver(index, address)
+    local receiver, realAddress = index_manager.getReceiver(index, address)
     if receiver == nil then
         return
     end
 
     if hasEmptySlots(receiver) then
         modem.callRemote(source, "pushItems", receiver, slot)
-        print("Transferred from " .. source .. " to " .. address)
+        print("Transferred from " .. source .. " to " .. realAddress)
     else
-        print("No empty slots available in receiver " .. address)
+        print("No empty slots available in receiver " .. realAddress)
     end
 end
 

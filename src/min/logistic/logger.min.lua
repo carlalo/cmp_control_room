@@ -1,0 +1,1 @@
+local a={file=nil,log_table={}}a.__index=a;function a:new(b)local c={}c.file=b;if fs.exists(c.file)then c.file=fs.open(c.file,"rw")local d=c.file.readAll()c.log_table=textutils.unserialise(d)else c.log_table={}local d=textutils.serialise(c.log_table)c.file=fs.open("/disk/index","rw")c.file.write(d)end;return setmetatable(c,self)end;function a:close()self.file.close()end;return a

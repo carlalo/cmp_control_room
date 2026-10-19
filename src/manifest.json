@@ -1,8 +1,10 @@
 {
   "files": {
+    "logistic/gui.lua": "dd8294a30dd012621764b0df108e092bfc42bf28ca1320fb97676e35718458ec",
+    "logistic/logger.lua": "d657f246094d6c4d804f173d2a918ce8287034e7365cb35a9f4ce4bb44bd4be7",
     "logistic/startup.lua": "27ee7cee4157c86311b422630fecac38353120473fd7c24ade635498e4080fa9",
     "logistic/commands.lua": "5ea2a30f758dfbc14656c25952bcd63a46510a89d94af7bccfffe8f3ba400aa9",
-    "logistic/logs/Log.lua": "a2c2ec045cb47801778965b496e7c222039f0ab3f6a08f3e920236b55978a19d",
+    "logistic/basalt.lua": "e015ea55e952435410d6b9f5cb53dd8628ab0e16c3bb51fd39fea050e59a854b",
     "logistic/logistic.lua": "4959b1a5711bdf0cdae3cb29d3d0fa804652ada1b0a67235ffae2a1db8e316d8",
     "logistic/index.lua": "bd2dc62611bf031c862bf19370f8f7e656187ac711cb80de615ccf6dc466c1e4",
     "control_room/testNetworkController.lua": "c0517d544cb2fcfa7de2cee2c6713fd702b456784eb60e0f6235000817c354aa",

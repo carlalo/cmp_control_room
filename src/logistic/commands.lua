@@ -1,5 +1,20 @@
+local index_manager = require("index")
+
+local Function_table;
+
+local function mysplit(inputstr, sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t = {}
+    for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+        table.insert(t, str)
+    end
+    return t
+end
+
 local commands = {
-    map = function(command)
+    map = function(command, index)
         if command[2] == "sender" then
             index_manager.addSender(index, command[3])
         end
@@ -7,30 +22,21 @@ local commands = {
             index_manager.addReceiver(index, command[3], command[4])
         end
     end,
-    list = function(command)
+    list = function(command, index)
         print("Senders:")
-        print(index_manager.listSenders(index))
+        print(textutils.serialise(index_manager.getAllSenders(index)))
         print("Receivers:")
-        print(index_manager.listReceivers(index))
+        print(textutils.serialise(index_manager.getAllReceivers(index)))
     end,
-    search = function(command)
+    search = function(command, index)
         local name = command[3]
 
         if command[2] == "sender" then
-            local senders = index_manager.searchSenders(index, name)
-            if #senders == 0 then
-                print("No senders found with name: " .. name)
+            local sender = index_manager.getAllSenders(index)[command[3]]
+            if sender == nil then
+                print("Sender not found: " .. command[3])
             else
-                local found = false;
-                for _, sender in ipairs(senders) do
-                    if sender == name then
-                        found = true
-                        print("Sender found: " .. sender)
-                    end
-                end
-                if not found then
-                    print("No senders found with name: " .. name)
-                end
+                print("Sender found: " .. command[3])
             end
         elseif command[2] == "receiver" then
             local receiver = index_manager.getReceiver(index, command[3])
@@ -43,11 +49,11 @@ local commands = {
             print("Unknown search type: " .. command[2])
         end
     end,
-    exit = function(command)
+    exit = function(command, index)
         print("Exiting...")
         return false;
     end,
-    help = function(command)
+    help = function(command, index)
         print("Available commands:")
         print("map sender <name> - Add a sender to the index")
         print("map receiver <name> <address> - Add a receiver to the index")
@@ -58,4 +64,18 @@ local commands = {
     end
 }
 
-return commands
+function Function_table.processCommandLoop(index)
+    while true do
+        local command = mysplit(read(), " ")
+        if commands[command[1]] == nil then
+            print("Unknown command: " .. command[1])
+        else
+            local returnCode = commands[command[1]](command, index)
+            if returnCode == false then
+                break
+            end
+        end
+    end
+end
+
+return Function_table

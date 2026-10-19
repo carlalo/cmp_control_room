@@ -32,6 +32,10 @@ function Index.getReceiver(index, address)
     end
 end
 
+function Index.getAllReceivers(index)
+    return index.receivers
+end
+
 function Index.getAllSenders(index)
     return index.senders
 end

@@ -4,6 +4,7 @@ local commands = require("commands")
 local logistic = require("logistic")
 local Logger = require("../lib/logger")
 
+local logger = Logger:new("/log")
 local index = index_manager.create()
 
 if #arg > 0 then
@@ -15,3 +16,4 @@ end
 
 print("Transferring")
 logistic.logisticsLoop(index)
+Logger:close()

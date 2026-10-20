@@ -33,7 +33,7 @@ function Logger:log(level, type, message)
     assert(levels[level], "invalid log level")
     local entry = table.pack(levels[level], type, message)
     table.insert(self.log_table, entry)
-    self.file.writeLine(textutils.serialise(entry))
+    self.file.writeLine(textutils.serialise(entry, { compact = true }))
     self.file.flush()
 end
 

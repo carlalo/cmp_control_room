@@ -2,7 +2,7 @@
   "files": {
     "logistic/logistic.lua": "2e8d3eac45d5730ae4ad15c2d3f58424ebce93ae3f11bb4d76a5ed3a4be05762",
     "logistic/gui.lua": "dd8294a30dd012621764b0df108e092bfc42bf28ca1320fb97676e35718458ec",
-    "logistic/startup.lua": "250cbb5a3070e6c7f5af8be0975f8a1d011c5f548289876e2a2c73f45bcca28a",
+    "logistic/startup.lua": "958d349a6e35847a6aa50856d237a781b09a85ef9c5bccede39988c12c79f99e",
     "logistic/index.lua": "c93a58f4aa18af69a2fa58afca2b2e542bc03b111b191ff795cdfcb56eef923e",
     "logistic/commands.lua": "5ea2a30f758dfbc14656c25952bcd63a46510a89d94af7bccfffe8f3ba400aa9",
     "logistic/basalt.lua": "e015ea55e952435410d6b9f5cb53dd8628ab0e16c3bb51fd39fea050e59a854b",

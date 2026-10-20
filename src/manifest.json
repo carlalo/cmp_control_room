@@ -1,12 +1,12 @@
 {
   "files": {
     "logistic/logistic.lua": "2e8d3eac45d5730ae4ad15c2d3f58424ebce93ae3f11bb4d76a5ed3a4be05762",
+    "logistic/lib/logger.lua": "a25ca633c678a8c721ab161c2b9fe4287e6f82a99ad426f8c55a5a882f10db10",
     "logistic/gui.lua": "dd8294a30dd012621764b0df108e092bfc42bf28ca1320fb97676e35718458ec",
-    "logistic/startup.lua": "997bb9bce6e8953b2401d82e035150a05837d4c681b29dd264ff97cbd507bcaa",
+    "logistic/startup.lua": "f5958b137e078b6d9872deb7d4444ef8024362345ce455dbd91e8f4d8d7f5111",
     "logistic/index.lua": "c93a58f4aa18af69a2fa58afca2b2e542bc03b111b191ff795cdfcb56eef923e",
     "logistic/commands.lua": "5ea2a30f758dfbc14656c25952bcd63a46510a89d94af7bccfffe8f3ba400aa9",
     "logistic/basalt.lua": "e015ea55e952435410d6b9f5cb53dd8628ab0e16c3bb51fd39fea050e59a854b",
-    "lib/logger.lua": "a25ca633c678a8c721ab161c2b9fe4287e6f82a99ad426f8c55a5a882f10db10",
     "control_room/rules/blacklist_presence.lua": "ea681aac33486da01b9e9020ffb2ac984db2e91a05c04e2fdc46f2a6c6df9d34",
     "control_room/testCannon.lua": "2b51a735abf72c40322df2a75b3c065001d569a02e58d00e09e45d99f69a3276",
     "control_room/config/layout.lua": "782c31e0452053a5e7f7f0c80cd94db86f4033094117b7a1d6e5e3f131da196b",

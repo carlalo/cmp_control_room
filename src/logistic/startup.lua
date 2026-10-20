@@ -2,7 +2,7 @@ local modem = peripheral.find("modem")
 local index_manager = require("index")
 local commands = require("commands")
 local logistic = require("logistic")
-local Logger = require("logger")
+local Logger = require("../lib/logger")
 
 local index = index_manager.create()
 

@@ -2,7 +2,7 @@ local modem = peripheral.find("modem")
 local index_manager = require("index")
 local commands = require("commands")
 local logistic = require("logistic")
-local Logger = require(fs.combine(fs.getDir(shell.getRunningProgram()), "../lib", "logger"))
+local Logger = require("lib/logger")
 
 local logger = Logger:new("/log")
 local index = index_manager.create()

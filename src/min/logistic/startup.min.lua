@@ -1,1 +1,1 @@
-local a=peripheral.find("modem")local b=require("index")local c=require("commands")local d=require("logistic")local e=require("logger")local f=b.create()if#arg>0 then if arg[1]=="mapping"then print("Mapping")c.processCommandLoop(f)end end;print("Transferring")d.logisticsLoop(f)
+local a=peripheral.find("modem")local b=require("index")local c=require("commands")local d=require("logistic")local e=require("../lib/logger")local f=b.create()if#arg>0 then if arg[1]=="mapping"then print("Mapping")c.processCommandLoop(f)end end;print("Transferring")d.logisticsLoop(f)

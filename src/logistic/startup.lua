@@ -2,19 +2,18 @@ local modem = peripheral.find("modem")
 local index_manager = require("index")
 local commands = require("commands")
 local logistic = require("logistic")
-print(fs.combine(fs.getDir(shell.getRunningProgram()))
 local Logger = require(fs.combine(fs.getDir(shell.getRunningProgram()), "../lib", "logger"))
 
--- local logger = Logger:new("/log")
--- local index = index_manager.create()
+local logger = Logger:new("/log")
+local index = index_manager.create()
 
--- if #arg > 0 then
---     if arg[1] == "mapping" then
---         print("Mapping")
---         commands.processCommandLoop(index);
---     end
--- end
+if #arg > 0 then
+    if arg[1] == "mapping" then
+        print("Mapping")
+        commands.processCommandLoop(index);
+    end
+end
 
--- print("Transferring")
--- logistic.logisticsLoop(index)
--- Logger:close()
+print("Transferring")
+logistic.logisticsLoop(index)
+Logger:close()

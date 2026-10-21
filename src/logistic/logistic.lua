@@ -61,9 +61,13 @@ function Logistic.logisticsLoop(index)
             sleep(5)
             break
         end
+        local funcs = {}
         for k, sender in ipairs(senders) do
-            check_sender(sender, index)
+            table.insert(funcs, function()
+                check_sender(sender, index)
+            end)
         end
+        parallel.waitForAll(table.unpack(funcs))
     end
 end
 

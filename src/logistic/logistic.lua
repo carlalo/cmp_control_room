@@ -65,7 +65,7 @@ function Logistic.logisticsLoop(index)
         for k, sender in ipairs(senders) do
             table.insert(funcs, function()
                 local status, err = pcall(check_sender, sender, index)
-                if ~status then
+                if not status then
                     print(err)
                 end
             end)

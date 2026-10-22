@@ -64,7 +64,10 @@ function Logistic.logisticsLoop(index)
         local funcs = {}
         for k, sender in ipairs(senders) do
             table.insert(funcs, function()
-                check_sender(sender, index)
+                local status, err = pcall(check_sender, sender, index)
+                if ~status then
+                    print(err)
+                end
             end)
         end
         parallel.waitForAll(table.unpack(funcs))

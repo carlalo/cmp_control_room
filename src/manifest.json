@@ -1,6 +1,6 @@
 {
   "files": {
-    "logistic/logistic.lua": "56507227f8f22315911f950dde6b530b7ba08a0431edb150ce29264edd409a72",
+    "logistic/logistic.lua": "a33c68bc758befd1e0653a8b03dfcf3a457790c5b5d95fa700b3cd5facf94f98",
     "logistic/lib/logger.lua": "a25ca633c678a8c721ab161c2b9fe4287e6f82a99ad426f8c55a5a882f10db10",
     "logistic/gui.lua": "69a07b7052a69b7221608a32296090f62311f66c1e87596349e8b29cd3ec8330",
     "logistic/startup.lua": "f5958b137e078b6d9872deb7d4444ef8024362345ce455dbd91e8f4d8d7f5111",

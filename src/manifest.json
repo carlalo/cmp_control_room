@@ -5,7 +5,7 @@
     "logistic/startup.lua": "f5958b137e078b6d9872deb7d4444ef8024362345ce455dbd91e8f4d8d7f5111",
     "logistic/commands.lua": "5ea2a30f758dfbc14656c25952bcd63a46510a89d94af7bccfffe8f3ba400aa9",
     "logistic/basalt.lua": "e327ddafdc999b4066bb4ad3dcfe1c72f200d02c718b627de22ebe4583ebf00d",
-    "logistic/logistic.lua": "b3b1d88aa1a1e8ee4e33f92b143e5ddb2d723792cf72a3f8a7b2febe248b24f6",
+    "logistic/logistic.lua": "a39d278bba9e167031d9d8d3fff52e905facb4eb3e3310ab03da4568a1182b81",
     "logistic/index.lua": "c93a58f4aa18af69a2fa58afca2b2e542bc03b111b191ff795cdfcb56eef923e",
     "control_room/testNetworkController.lua": "c0517d544cb2fcfa7de2cee2c6713fd702b456784eb60e0f6235000817c354aa",
     "control_room/screens/fluid_tank.lua": "97c497e6f881b90cc0dd043a84eafb933a70ab5ebbded7c7f738cc9dd42fd3ce",

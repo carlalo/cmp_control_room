@@ -40,24 +40,26 @@ local function check_sender(sender, index)
 end
 
 function Logistic.logisticsLoop(index)
-    while true do
-        local senders = index_manager.getAllSenders(index)
-        if #senders == 0 then
-            print("No senders found in index.")
-            sleep(5)
-            break
+    parallel.waitForAny(read, function()
+        while true do
+            local senders = index_manager.getAllSenders(index)
+            if #senders == 0 then
+                print("No senders found in index.")
+                sleep(5)
+                break
+            end
+            local funcs = {}
+            for k, sender in ipairs(senders) do
+                table.insert(funcs, function()
+                    local status, err = pcall(check_sender, sender, index)
+                    if not status then
+                        print(err)
+                    end
+                end)
+            end
+            parallel.waitForAll(table.unpack(funcs))
         end
-        local funcs = {}
-        for k, sender in ipairs(senders) do
-            table.insert(funcs, function()
-                local status, err = pcall(check_sender, sender, index)
-                if not status then
-                    print(err)
-                end
-            end)
-        end
-        parallel.waitForAll(table.unpack(funcs))
-    end
+    end)
 end
 
 return Logistic

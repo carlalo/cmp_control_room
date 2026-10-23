@@ -5,15 +5,9 @@ local Logistic = {}
 
 local function hasEmptySlots(inventoryName)
     local size = modem.callRemote(inventoryName, "size")
-    for slot = 1, size do
-        local item = modem.callRemote(
-            inventoryName,
-            "getItemDetail",
-            slot
-        )
-        if item == nil then
-            return true -- An empty slot was found
-        end
+    local used_slots = #modem.callRemote(inventoryName, "list")
+    if used_slots < size then
+        return true
     end
     return false -- No empty slots
 end
@@ -34,21 +28,13 @@ end
 
 local function check_sender(sender, index)
     for slot, item in pairs(modem.callRemote(sender, "list")) do
-        if item == nil then
+        if not (string.find(item.name, "create:cardboard_package")) then
+            transferItem("MainItem", sender, slot, index)
             goto continue
         end
         local details = modem.callRemote(sender, "getItemDetail", slot)
-        local package = details.package
-        if package == nil then
-            transferItem("MainItem", sender, slot, index)
-        else
-            local address = package.getAddress()
-            if address ~= nil then
-                transferItem(address, sender, slot, index)
-            else
-                print("No address found for item in slot " .. slot .. " of sender " .. sender)
-            end
-        end
+        local address = details.package.getAddress()
+        transferItem(address, sender, slot, index)
         ::continue::
     end
 end

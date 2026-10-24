@@ -30,7 +30,7 @@ end
 local function check_sender(sender, index, logger)
     for slot, item in pairs(modem.callRemote(sender, "list")) do
         if not (string.find(item.name, "create:cardboard_package")) then
-            transferItem("MainItem", sender, slot, index)
+            transferItem("MainItem", sender, slot, index, logger)
             goto continue
         end
         local details = modem.callRemote(sender, "getItemDetail", slot)

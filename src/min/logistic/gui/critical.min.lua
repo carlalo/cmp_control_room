@@ -1,0 +1,1 @@
+local a={}function a.getCriticals(b,c)local d=b:getLastByLevel(24,b.levels.CRIT)local e={}for f,g in ipairs(d)do local h=g[3]table.insert(e,{text=h,value=f,fg=c.lava})end;return e end;function a.addCriticalFields(i,b,c)local j=i:addList({x=2,y=2,width=53,height=24,scrollbar="hidden",items=a.getCriticals(b,c),background=c.bg})return j end;return a

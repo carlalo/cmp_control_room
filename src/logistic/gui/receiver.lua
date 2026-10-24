@@ -1,4 +1,4 @@
-local logistic = require("../logistic")
+local logistic = require(fs.combine(shell.getRunningProgram(), "../", "logistic"))
 local index_manager = require("../index")
 local M = {}
 

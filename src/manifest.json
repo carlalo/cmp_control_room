@@ -4,7 +4,7 @@
     "logistic/lib/logger.lua": "029917b94cca16b5196eb6c91b7bd88f72ada9c969dca0ab90a4c0d34a6b0311",
     "logistic/lib/basalt.lua": "e327ddafdc999b4066bb4ad3dcfe1c72f200d02c718b627de22ebe4583ebf00d",
     "logistic/startup.lua": "363e9b1011b4d3d8ac24f27ab35d9910cd7eeee98bfbb8af758a9732f92090f3",
-    "logistic/gui/receiver.lua": "82ae95c520579ff987cf01a8d45ce9c9358bc20b8e726eca0e8206eaa7a84d7a",
+    "logistic/gui/receiver.lua": "0631fdfcd09003fa1dfe6805b5fd56084a9a82a90e942dea46fb382bb0e5463f",
     "logistic/gui/sender.lua": "a9430baad07eda1a7c74931bdaf1d32bc86ccdca5d4e146c64b38acfc2863e95",
     "logistic/gui/critical.lua": "c5879a680424aedb1b0a77f8619068585711b4cad215d866fa699058ccc023d8",
     "logistic/gui/transfer.lua": "33fc788c95294cc1ec283f009c48e9899597f079688700ce70c5361aa8bcfb16",

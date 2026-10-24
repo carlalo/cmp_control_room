@@ -1,7 +1,7 @@
 local M = {}
 
 function M.getTransfers(logger, palette)
-    local transfers = logger:getALlByType("TRANSFER")
+    local transfers = logger:getAllByType("TRANSFER")
     local items = {}
     for i, transfer in ipairs(transfers) do
         local source, address = table.unpack(transfer[3])

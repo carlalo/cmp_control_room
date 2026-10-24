@@ -47,6 +47,7 @@ function M.addReceiverFields(receiver, palette, index, logger)
         y = 4,
         width = 24,
         text = "Name...",
+        autoComplete = true,
         dropHeight = 7,
         items = logistic.getUnassignedInterfaces(index)
     })

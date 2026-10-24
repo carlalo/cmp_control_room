@@ -31,16 +31,23 @@ function M.addSenderFields(sender, palette, index)
     })
 
 
-    M.nameDropdown = sender:addDropdown({
+    M.nameComboBox = receiver:addComboBox({
         x = 2,
         y = 4,
         width = 24,
         text = "Name...",
+        autoComplete = true,
         dropHeight = 7,
-        items = M.getUnassignedInterfaces(index)
+        items = logistic.getUnassignedInterfaces(index)
     })
 
-    M.nameDropdown:onSelect(function(_, _, item)
+    M.nameComboBox:onChange(function(self)
+        M.selectedName = self.text
+        M.status.text = ""
+    end)
+
+
+    M.nameComboBox:onSelect(function(_, _, item)
         M.selectedName = item.text
         M.status.text = ""
     end)
@@ -53,7 +60,7 @@ function M.addSenderFields(sender, palette, index)
         height = 1,
         text = "Update",
     }):onClick(function()
-        M.nameDropdown.items = M.getUnassignedInterfaces(index)
+        M.nameComboBox.items = M.getUnassignedInterfaces(index)
     end)
 
     sender:addButton({
@@ -70,7 +77,7 @@ function M.addSenderFields(sender, palette, index)
 
         index_manager.addSender(index, M.selectedName)
         M.status.text = M.selectedName .. " als Sender gemappt!"
-        M.nameDropdown.items = M.getUnassignedInterfaces(index)
+        M.nameComboBox.items = logistic.getUnassignedInterfaces(index)
         M.selectedName = nil
     end)
 end

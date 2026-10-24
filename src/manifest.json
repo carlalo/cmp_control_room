@@ -9,7 +9,7 @@
     "logistic/gui/critical.lua": "c5879a680424aedb1b0a77f8619068585711b4cad215d866fa699058ccc023d8",
     "logistic/gui/transfer.lua": "33fc788c95294cc1ec283f009c48e9899597f079688700ce70c5361aa8bcfb16",
     "logistic/gui/address.lua": "5744a9ff38a0206cdc64e5e562945bc53f06d371202fad58b4153ee151ffccd5",
-    "logistic/logistic.lua": "f8ba2f239ca9398cc9e1d1d8d6020d3b100b999c934626288b2e0bac7f3624f5",
+    "logistic/logistic.lua": "7df07162d679cf30db2f8368379816530a42c7c1d5d3eda508886d817178035c",
     "logistic/index.lua": "fb073c4b872a1a0fb6e6104c9da1dae36dbb51f24d37a5d8738e70a73e22c55d",
     "control_room/testNetworkController.lua": "c0517d544cb2fcfa7de2cee2c6713fd702b456784eb60e0f6235000817c354aa",
     "control_room/screens/fluid_tank.lua": "97c497e6f881b90cc0dd043a84eafb933a70ab5ebbded7c7f738cc9dd42fd3ce",

@@ -31,7 +31,7 @@ function M.addSenderFields(sender, palette, index)
     })
 
 
-    M.nameComboBox = receiver:addComboBox({
+    M.nameComboBox = sender:addComboBox({
         x = 2,
         y = 4,
         width = 24,

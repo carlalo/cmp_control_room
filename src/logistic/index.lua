@@ -24,13 +24,13 @@ function Index.create()
     return index
 end
 
-function Index.getReceiver(index, address)
+function Index.getReceiver(index, address, logger)
     if index.receivers[address] ~= nil then
         return index.receivers[address], address
     elseif index.receivers["backup"] ~= nil then
         return index.receivers["backup"], "backup"
     else
-        print("Receiver " .. address .. " war nicht belegt!")
+        logger:log(logger.levels.WARN, "ADDRESS_404", address)
     end
 end
 

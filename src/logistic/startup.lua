@@ -1,19 +1,16 @@
-local modem = peripheral.find("modem")
 local index_manager = require("index")
-local commands = require("commands")
 local logistic = require("logistic")
 local Logger = require("lib/logger")
+local gui = require("gui")
 
-local logger = Logger:new("/log")
 local index = index_manager.create()
+local logger = Logger:new("/log")
 
-if #arg > 0 then
-    if arg[1] == "mapping" then
-        print("Mapping")
-        commands.processCommandLoop(index);
-    end
-end
-
+gui.addComputerGUI(index, logger)
+gui.addMonitorGUI(logger)
 print("Transferring")
-logistic.logisticsLoop(index)
-Logger:close()
+
+parallel.waitForAny(gui.startGUI, function()
+    logistic.logisticsLoop(index, logger)
+end)
+logger:close()

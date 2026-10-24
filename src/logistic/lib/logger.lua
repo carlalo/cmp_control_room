@@ -10,12 +10,11 @@ Logger.levels = levels
 
 function Logger:new(filepath)
     local logger = {}
-    logger.file = filepath
     logger.log_table = {}
-    logger.file_path = filepath
+    logger.filepath = filepath
 
-    if fs.exists(logger.file) then
-        logger.file = fs.open(logger.file, "r+")
+    if fs.exists(logger.filepath) then
+        logger.file = fs.open(logger.filepath, "r+")
         repeat
             local line = logger.file.readLine()
             if line then
@@ -33,6 +32,9 @@ function Logger:log(level, type, message)
     assert(levels[level], "invalid log level")
     local entry = table.pack(levels[level], type, message)
     table.insert(self.log_table, entry)
+    if #self.log_table >= 50 then
+        table.remove(self.log_table, 1)
+    end
     self.file.writeLine(textutils.serialise(entry, { compact = true }))
     self.file.flush()
 end
@@ -42,6 +44,18 @@ local function getLinesOfType(targettype, log_table)
     for line, content in ipairs(log_table) do
         local level, type, message = table.unpack(content)
         if type == targettype then
+            table.insert(lines, line)
+        end
+    end
+    return lines
+end
+
+
+local function getLinesOfLevel(targetlevel, log_table)
+    local lines = {}
+    for line, content in ipairs(log_table) do
+        local level, type, message = table.unpack(content)
+        if level == targetlevel then
             table.insert(lines, line)
         end
     end
@@ -61,12 +75,35 @@ function Logger:getAllByType(type)
     end
 end
 
+function Logger:getAllByLevel(level)
+    if type then
+        local lines = getLinesOfLevel(level, self.log_table)
+        local returnTable = {}
+        for _, line_number in ipairs(lines) do
+            table.insert(returnTable, self.log_table[line_number])
+        end
+        return returnTable
+    else
+        return self.log_table
+    end
+end
+
 function Logger:getLastByType(amount, type)
-    local fitleredTable = self.getAllByType(type)
-    local goal = math.max(1, #fitleredTable - amount)
+    local filteredTable = self:getAllByType(type)
+    local goal = math.max(1, #filteredTable - amount)
     local returnTable = {}
-    for i = #fitleredTable, goal, -1 do
-        table.insert(returnTable, fitleredTable[i])
+    for i = #filteredTable, goal, -1 do
+        table.insert(returnTable, filteredTable[i])
+    end
+    return returnTable
+end
+
+function Logger:getLastByLevel(amount, level)
+    local filteredTable = self:getAllByLevel(level)
+    local goal = math.max(1, #filteredTable - amount)
+    local returnTable = {}
+    for i = #filteredTable, goal, -1 do
+        table.insert(returnTable, filteredTable[i])
     end
     return returnTable
 end
@@ -88,9 +125,10 @@ function Logger:clearEntriesByType(type)
     self.clearEntriesByLines(lines)
 end
 
-function Logger:clearAllEntries()
+function Logger:clear()
     self.file.close()
-    self.file = fs.open(self.filepath, "w+")
+    self.log_table = {}
+    self.file = fs.open(self.filepath, "w")
 end
 
 function Logger:close()

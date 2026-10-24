@@ -1,91 +1,139 @@
-local basalt = require("basalt")
+local basalt = require("lib/basalt")
+
+local M = {}
 
 local palette = basalt.use("theme").applyPreset("basalt")
-local frame = basalt.getMainFrame()
 
-local panelWidth = math.min(42, width - 4)
-local panelHeight = math.min(13, height - 2)
-local panel = main:addFrame({
-    x = math.floor((width - panelWidth) / 2) + 1,
-    y = math.floor((height - panelHeight) / 2) + 1,
-    width = panelWidth,
-    height = panelHeight,
-    background = palette.surface,
-})
+function M.addComputerGUI(index, logger)
+    local main = basalt.getMainFrame()
+    local width, height = main:getSize()
 
-panel:addLabel({
-    x = 2,
-    y = 2,
-    text = "My first Basalt app",
-    foreground = palette.lava,
-})
 
-panel:addLabel({
-    x = 2,
-    y = 4,
-    width = panelWidth - 4,
-    height = 2,
-    text = "Enter your name and press the button.",
-    foreground = palette.muted,
-})
+    local panelWidth = math.min(47, width - 4)
+    local panelHeight = math.min(18, height - 2)
 
-panel:addLabel({
-    x = 2,
-    y = 7,
-    text = "Name:",
-})
+    local panel = main:addFrame({
+        x = math.floor((width - panelWidth) / 2) + 1,
+        y = math.floor((height - panelHeight) / 2) + 1,
+        width = panelWidth,
+        height = panelHeight,
+        background = palette.surface,
+    })
 
-local nameInput = panel:addInput({
-    x = 9,
-    y = 7,
-    width = panelWidth - 11,
-    placeholder = "Steve",
-})
+    panel:addLabel({
+        x = 2,
+        y = 2,
+        text = "Index Mapper",
+        foreground = palette.lava,
+    })
 
-local status = panel:addLabel({
-    x = 2,
-    y = 9,
-    width = panelWidth - 4,
-    text = "Waiting for input...",
-    foreground = palette.muted,
-})
+    panel:addButton({
+        x = panelWidth - 8,
+        y = 2,
+        width = 8,
+        height = 1,
+        text = "Exit",
+    }):onClick(function()
+        basalt.stop()
+    end)
 
-local function greet()
-    local name = nameInput.text:match("^%s*(.-)%s*$")
-    if name == "" then
-        status.text = "Please enter your name."
-        status.foreground = palette.warning
-        return
-    end
+    local tabs = panel:addTabControl({
+        x = 2,
+        y = 4,
+        width = panelWidth - 4,
+        height = 40,
+        background = palette.surface,
+        activeForeground = palette.surface,
+        activeBackground = palette.lava,
+    })
 
-    -- Properties can be changed directly. Basalt redraws the UI for us.
-    status.text = "Hello, " .. name .. "!"
-    status.foreground = palette.success
+    local receiver = tabs:addTab("Receiver")
+    local receiverFunctions = require("gui/receiver")
+    receiverFunctions.addReceiverFields(receiver, palette, index, logger)
+    local sender = tabs:addTab("Sender")
+    local senderFunctions = require("gui/sender")
+    senderFunctions.addSenderFields(sender, palette, index)
+
+
+    local focusTargets = {
+        receiver:getChildren()[1],
+        sender:getChildren()[1],
+    }
+
+    tabs:onChange(function(_, index, title)
+        if focusTargets[index] then focusTargets[index]:focus() end
+    end)
+
+    receiver:getChildren()[1]:focus()
 end
 
-panel:addButton({
-    x = 2,
-    y = 11,
-    width = 12,
-    height = 1,
-    text = "Say hello",
-    foreground = palette.bg,
-    background = palette.lava,
-}):onClick(greet)
+function M.addMonitorGUI(logger)
+    local monitorName = "monitor"
+    local monitor = assert(peripheral.find(monitorName), "monitor missing")
+    monitor.setTextScale(0.5)
 
-panel:addButton({
-    x = panelWidth - 9,
-    y = 11,
-    width = 8,
-    height = 1,
-    text = "Exit",
-}):onClick(function()
-    basalt.stop()
-end)
+    local frame = basalt.createFrame(monitor)
+    frame.background = palette.surface
+    local width, height = frame:getSize()
 
--- Pressing Enter in the input performs the same action as the button.
-nameInput:onEnter(greet)
-nameInput:focus()
+    local tabs = frame:addTabControl({
+        x = 2,
+        y = 2,
+        width = width - 3,
+        height = height - 2,
+        background = palette.surface,
+        activeForeground = palette.surface,
+        activeBackground = palette.lava
+    })
+
+
+    frame:addButton({
+        x = 44,
+        y = 2,
+        width = 11,
+        height = 1,
+        text = "Clear Log",
+    }):onClick(function()
+        logger:clear()
+    end)
+
+    local transfer = tabs:addTab("Transfer")
+    local transferFunctions = require("gui/transfer")
+    local list = transferFunctions.addTransferFields(transfer, logger, palette)
+
+    local critical = tabs:addTab("Critical")
+    local criticalFunctions = require("gui/critical")
+    local criticals = criticalFunctions.addCriticalFields(critical, logger, palette)
+
+    local address = tabs:addTab("Address_404")
+    local addressFunctions = require("gui/address")
+    local addresses = addressFunctions.getAddressFields(address, logger, palette)
+
+    basalt.schedule(function()
+        while true do
+            list.items = transferFunctions.getTransfers(logger, palette)
+            os.sleep(4)
+        end
+    end)
+
+    local focusTargets = {
+        transfer:getChildren()[1],
+        critical:getChildren()[1],
+        address:getChildren()[1],
+    }
+
+    tabs:onChange(function(_, index, title)
+        if focusTargets[index] then focusTargets[index]:focus() end
+        criticals.items = criticalFunctions.getCriticals(logger, palette)
+        addresses.items = addressFunctions.get404s(logger, palette)
+    end)
+
+    transfer:getChildren()[1]:focus()
+end
 
 -- Start Basalt's event loop. This call blocks until basalt.stop() is called.
-basalt.run()
+function M.startGUI()
+    basalt.run()
+end
+
+return M

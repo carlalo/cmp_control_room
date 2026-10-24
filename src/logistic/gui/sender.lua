@@ -1,5 +1,5 @@
-local logistic = require("../logistic")
-local index_manager = require("../index")
+local logistic = require("logistic")
+local index_manager = require("index")
 local M = {}
 
 

@@ -3,13 +3,6 @@ local index_manager = require("index")
 local M = {}
 
 
-function M.getUnassignedInterfaces(index)
-    local names = {}
-    for i, name in ipairs(logistic.getUnassignedInterfaces(index)) do
-        table.insert(names, { text = name, value = i })
-    end
-    return names
-end
 
 function M.getUnassignedAddress(logger)
     local entries = logger:getLastByType(5, "ADDRESS_404")
@@ -49,17 +42,22 @@ function M.addReceiverFields(receiver, palette, index, logger)
     })
 
 
-    M.receiverDropdown = receiver:addDropdown({
+    M.receiverComboBox = receiver:addComboBox({
         x = 2,
         y = 4,
         width = 24,
         text = "Name...",
         dropHeight = 7,
-        items = M.getUnassignedInterfaces(index)
+        items = logistic.getUnassignedInterfaces(index)
     })
 
-    M.receiverDropdown:onSelect(function(_, _, item)
+    M.receiverComboBox:onSelect(function(_, _, item)
         M.selectedName = item.text
+        M.status.text = ""
+    end)
+
+    M.receiverComboBox:onChange(function(self)
+        M.selectedName = self.text
         M.status.text = ""
     end)
 
@@ -99,7 +97,7 @@ function M.addReceiverFields(receiver, palette, index, logger)
         height = 1,
         text = "Update",
     }):onClick(function()
-        M.receiverDropdown.items = M.getUnassignedInterfaces(index)
+        M.receiverComboBox.items = M.getUnassignedInterfaces(index)
         M.addressesComboBox.items = M.getUnassignedAddress(logger)
     end)
 
@@ -121,7 +119,7 @@ function M.addReceiverFields(receiver, palette, index, logger)
 
         index_manager.addReceiver(index, M.selectedName, M.selectedAddress)
         M.status.text = M.selectedName .. " auf Adresse '" .. M.selectedAddress .. "' gemappt!"
-        M.receiverDropdown.items = M.getUnassignedInterfaces(index)
+        M.receiverComboBox.items = logistic.getUnassignedInterfaces(index)
         M.addressesComboBox.items = M.getUnassignedAddress(logger)
         M.selectedName = nil
         M.selectedAddress = nil

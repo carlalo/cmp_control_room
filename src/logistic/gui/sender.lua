@@ -60,7 +60,7 @@ function M.addSenderFields(sender, palette, index)
         height = 1,
         text = "Update",
     }):onClick(function()
-        M.nameComboBox.items = M.getUnassignedInterfaces(index)
+        M.nameComboBox.items = logistic.getUnassignedInterfaces(index)
     end)
 
     sender:addButton({

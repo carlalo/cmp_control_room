@@ -98,7 +98,7 @@ function M.addReceiverFields(receiver, palette, index, logger)
         height = 1,
         text = "Update",
     }):onClick(function()
-        M.receiverComboBox.items = M.getUnassignedInterfaces(index)
+        M.receiverComboBox.items = logistic.getUnassignedInterfaces(index)
         M.addressesComboBox.items = M.getUnassignedAddress(logger)
     end)
 

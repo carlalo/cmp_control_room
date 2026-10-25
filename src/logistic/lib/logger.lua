@@ -30,13 +30,23 @@ end
 
 function Logger:log(level, type, message)
     assert(levels[level], "invalid log level")
-    local entry = table.pack(levels[level], type, message)
-    table.insert(self.log_table, entry)
-    if #self.log_table >= 50 then
-        table.remove(self.log_table, 1)
+    local new_entry = table.pack(levels[level], type, message)
+    table.insert(self.log_table, new_entry)
+    if #self.log_table >= 200 then
+        local lenght = #self.log_table
+        table.move(self.log_table, 151, lenght, 1)
+        for i = lenght - 149, lenght do
+            self.log_table[i] = nil
+        end
+        self.file.close()
+        self.file = fs.open(self.filepath, "w+")
+        for _, entry in ipairs(self.log_table) do
+            self.file.writeLine(textutils.serialise(entry))
+        end
+    else
+        self.file.writeLine(textutils.serialise(new_entry, { compact = true }))
+        self.file.flush()
     end
-    self.file.writeLine(textutils.serialise(entry, { compact = true }))
-    self.file.flush()
 end
 
 local function getLinesOfType(targettype, log_table)

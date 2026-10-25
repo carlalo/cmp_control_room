@@ -96,7 +96,7 @@ function Logistic.logisticsLoop(index, logger)
             table.insert(funcs, function()
                 local status, err = pcall(check_sender, sender, index, logger)
                 if not status then
-                    logger:log(logger.levels.CRIT, "PCALL", err)
+                    logger:log(logger.levels.CRIT, "PCALL", err:match "^.../logistic/logistic.lua(.*)")
                 end
             end)
         end

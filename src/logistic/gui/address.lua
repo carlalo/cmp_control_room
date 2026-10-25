@@ -28,7 +28,8 @@ function M.getAddressFields(address, logger, palette)
         height = 24,
         scrollbar = "hidden",
         items = M.get404s(logger, palette),
-        background = palette.bg
+        background = palette.bg,
+        selectable = false
     })
 
     return list

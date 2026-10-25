@@ -23,7 +23,8 @@ function M.addCriticalFields(critical, logger, palette)
         height = 24,
         scrollbar = "hidden",
         items = M.getCriticals(logger, palette),
-        background = palette.bg
+        background = palette.bg,
+        selectable = false
     })
 
     return list
